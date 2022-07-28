@@ -3,7 +3,7 @@ import { GalleryImg } from "./components/GalleryImg";
 import { getImageLinks } from "./helpers/getImageLinks";
 
 export const App = () => {
-  const [imagenes, setImagenes] = useState(["caca"]);
+  const [imagenes, setImagenes] = useState([]);
 
   const fetchImages = async () => {
     setImagenes(await getImageLinks());
