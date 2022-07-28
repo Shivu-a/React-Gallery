@@ -2,4 +2,4 @@
 
 Gallery made with React & Tailwind CSS
 
-#Link: https://shivu-a.github.io/React-Gallery/
+# Link: https://shivu-a.github.io/React-Gallery/
