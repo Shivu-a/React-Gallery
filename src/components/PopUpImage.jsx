@@ -9,7 +9,7 @@ export const PopUpImage = ({ source, viewImage }) => {
       >
         X
       </button>
-      <img className="max-h-screen max-w-full" src={source} />
+      <img className="max-h-screen max-w-full object-contain" src={source} />
     </div>
   );
 };
