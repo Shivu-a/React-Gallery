@@ -14,7 +14,7 @@ export const App = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap overflow-auto p-4 gap-4 bg-slate-900 h-screen w-full">
+    <div className="flex flex-wrap overflow-auto p-4 justify-center gap-4 bg-slate-900 h-screen w-full">
       {imagenes.map((imagen) => (
         <GalleryImg source={imagen} key={imagen} />
       ))}

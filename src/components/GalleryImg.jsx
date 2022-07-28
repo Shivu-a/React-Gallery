@@ -8,10 +8,11 @@ export const GalleryImg = ({ source }) => {
         <span className="w-4 h-4 border-8 p-4 rounded-full border-t-slate-900 animate-spin"></span>
       )}
       <img
+        loading="lazy"
         onLoad={() => {
           setIsLoading(false);
         }}
-        className="object-contain max-h-96"
+        className="object-contain max-h-96 rounded-md border-2 border-transparent transition-all ease-in-out hover:border-yellow-400 hover:-translate-y-2"
         src={source}
       />
     </>
