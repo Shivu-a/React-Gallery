@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { FullPhoto } from "./FullPhoto";
 
 export const Photo = ({ link, linkFullImage, linkToOriginal }) => {
   const [showFullImage, setShowFullImage] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
-  const [fullImgLoaded, setFullImgLoaded] = useState(false);
 
   const handleImageClick = () => {
     setShowFullImage(true);
@@ -19,18 +19,9 @@ export const Photo = ({ link, linkFullImage, linkToOriginal }) => {
           >
             X
           </button>
-          {!fullImgLoaded && (
-            <div className="spinnerContainer">
-              <div className="spinner"></div>
-            </div>
-          )}
 
-          <img
-            style={fullImgLoaded ? {} : { display: "hidden" }}
-            onLoad={() => setFullImgLoaded(true)}
-            className="fullImage"
-            src={linkFullImage}
-          />
+          <FullPhoto image={linkFullImage} />
+
           <a target={"_blank"} href={linkToOriginal}>
             Link to original
           </a>
