@@ -1,23 +1,41 @@
-import React, { useEffect, useState } from "react";
-import { GalleryImg } from "./components/GalleryImg";
-import { getImageLinks } from "./helpers/getImageLinks";
+import { useEffect, useState } from "react";
+import { Photo } from "./components/Photo";
+import "./App.css";
 
-export const App = () => {
-  const [imagenes, setImagenes] = useState([]);
+function App() {
+  const [photos, setPhotos] = useState([]);
 
-  const fetchImages = async () => {
-    setImagenes(await getImageLinks());
+  console.log(photos);
+
+  const getPhotos = async () => {
+    const response = await fetch(
+      "https://api.unsplash.com/photos/random?client_id=liT8ZK557Rh9o6hcEfwcWZg-fK1kVqJzsPvjSgALPm0&count=20"
+    );
+    const data = await response.json();
+
+    console.log(data);
+
+    setPhotos(await data);
   };
 
   useEffect(() => {
-    fetchImages();
+    getPhotos();
   }, []);
 
   return (
-    <div className="flex flex-wrap overflow-auto p-4 justify-center gap-4 bg-slate-900 h-screen w-full">
-      {imagenes.map((imagen) => (
-        <GalleryImg source={imagen} key={imagen} />
-      ))}
+    <div className="App">
+      <div className="imageDiv">
+        {photos.map((element) => (
+          <Photo
+            key={element.urls.regular}
+            link={element.urls.regular}
+            linkFullImage={element.urls.full}
+            linkToOriginal={element.links.html}
+          />
+        ))}
+      </div>
     </div>
   );
-};
+}
+
+export default App;
