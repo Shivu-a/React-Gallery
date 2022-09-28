@@ -25,17 +25,32 @@
   gap: 1rem;
 }
 
-.imageDiv > img {
-  max-height: 30vh;
-  width: auto;
-  border: 2px solid transparent;
-  transition: all 250ms;
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 40vh;
+  width: 20vw;
+  overflow: hidden;
 }
 
-.imageDiv > img:hover {
-  transform: scale(1.1);
+.image > img {
+  max-height: 90%;
+  max-width: 95%;
+  transition: all 250ms ease;
+  border: 2px solid transparent;
+}
+
+.image > img:hover {
+  transform: translateY(-5px);
   border: 2px solid #fff;
   cursor: pointer;
+}
+
+.fullImageContainer {
+  height: 90%;
+  overflow: hidden;
 }
 
 .fullImage {
@@ -56,14 +71,13 @@
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(25px);
 }
 
 .background a {
   padding: 0.4rem 1rem;
   border-radius: 30px;
   background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(15px);
   color: white;
   text-decoration: none;
 }
@@ -111,5 +125,47 @@
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90vw;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .image > img {
+    max-height: 90%;
+    max-width: 95%;
+    transition: all 250ms ease;
+    border: 2px solid transparent;
+  }
+
+  .image > img:hover {
+    transform: translateY(-5px);
+    border: 2px solid #fff;
+    cursor: pointer;
+  }
+
+  .fullImageContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .fullImage {
+    max-width: 90%;
+    height: auto;
+  }
+
+  .background > a {
+    position: fixed;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-60%);
   }
 }

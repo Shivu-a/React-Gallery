@@ -4,7 +4,7 @@ export const FullPhoto = ({ image }) => {
   const [fullImgLoaded, setFullImgLoaded] = useState(false);
 
   return (
-    <div style={{ height: "90%", overflow: "hidden" }}>
+    <div className="fullImageContainer">
       {!fullImgLoaded && (
         <div className="spinnerContainer">
           <div className="spinner"></div>

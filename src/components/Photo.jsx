@@ -28,13 +28,19 @@ export const Photo = ({ link, linkFullImage, linkToOriginal }) => {
         </div>
       )}
 
-      {!imgLoaded && <div className="spinner"></div>}
-      <img
-        onLoad={() => setImgLoaded(true)}
-        src={link}
-        alt={`${link} Photo`}
-        onClick={handleImageClick}
-      />
+      <div className="image">
+        {!imgLoaded && (
+          <div className="spinnerContainer">
+            <div className="spinner"></div>
+          </div>
+        )}
+        <img
+          onLoad={() => setImgLoaded(true)}
+          src={link}
+          alt={`${link} Photo`}
+          onClick={handleImageClick}
+        />
+      </div>
     </>
   );
 };
